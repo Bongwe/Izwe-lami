@@ -13,6 +13,7 @@ public class Controller : MonoBehaviour
 	float timeleft = 1.0f;
 	float walkingSoundDelay;
 	bool isOnTheWall = false;
+	public AudioSource hitWall;
 
     // Use this for initialization
     private void Start ()
@@ -58,6 +59,7 @@ public class Controller : MonoBehaviour
 	void OnCollisionEnter2D(Collision2D collision){
 		if(collision.gameObject.tag == "Wall"){
 			isOnTheWall = true;
+			hitWall.Play ();
 		}
 	}
 

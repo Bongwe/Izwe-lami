@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,6 +16,16 @@ public class Fall : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D collision){
-		SceneManager.LoadScene (1);
+		if (collision.gameObject.tag == "Player") {
+			StartCoroutine (LoadDeathScene());
+		} else {
+			SceneManager.LoadScene (2);
+		}
+	}
+
+	IEnumerator LoadDeathScene(){
+		float timeOut = 0.5f;
+		yield return new WaitForSeconds (timeOut);
+		SceneManager.LoadScene (4);
 	}
 }
