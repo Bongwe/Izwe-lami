@@ -27,6 +27,9 @@ public class Controller : MonoBehaviour
 	{
 	    this.horizontalInput = Input.GetAxis("Horizontal");
 		this.verticalInput = Input.GetAxis("Vertical");
+		if (Input.GetKey("escape")) {
+			Application.Quit ();
+		}
 	}
 
     //FixedUpdate is called every fixed framerate frame
@@ -68,4 +71,5 @@ public class Controller : MonoBehaviour
 			isOnTheWall = false;
 		}
 	}
+
 }
